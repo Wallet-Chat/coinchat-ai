@@ -9,7 +9,7 @@ interface Props {
 }
 ChartJS.register(CategoryScale);
 function LineChart({ chartData, multiAxis }: Props) {
-  const options = {
+  const options: any = {
     plugins: {
       legend: {
         display: multiAxis ? true : false,

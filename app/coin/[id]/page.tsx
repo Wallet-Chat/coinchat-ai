@@ -88,7 +88,7 @@ const Coin = ({ params: { id } }: Props) => {
       ) : error ? (
         <div>
           <h1 style={{ textAlign: "center" }}>
-            Sorry, Couldn't find the coin you're looking for 😞
+           {`Sorry, Couldn't find the coin you're looking for 😞`}
           </h1>
           <div
             style={{

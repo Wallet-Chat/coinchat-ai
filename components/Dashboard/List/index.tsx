@@ -6,9 +6,9 @@ import { convertNumber } from "../../../functions/convertNumber";
 import { motion } from "framer-motion";
 import { Tooltip } from "@mui/material";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
-import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
+// import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import StarIcon from "@mui/icons-material/Star";
-import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
+// import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
 interface Props {
     coin: any;

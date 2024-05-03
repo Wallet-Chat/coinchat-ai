@@ -4,9 +4,9 @@ import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import { motion } from "framer-motion";
 import StarOutlineIcon from "@mui/icons-material/StarOutline";
-import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
+// import { saveItemToWatchlist } from "../../../functions/saveItemToWatchlist";
 import StarIcon from "@mui/icons-material/Star";
-import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
+// import { removeItemToWatchlist } from "../../../functions/removeItemToWatchlist";
 
 interface Props {
     coin: any;

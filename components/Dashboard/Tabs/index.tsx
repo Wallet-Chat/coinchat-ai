@@ -48,7 +48,7 @@ export default function TabsComponent({ coins, setSearch }: Props) {
           ) : (
             <div>
               <h1 style={{ textAlign: "center" }}>
-                Sorry, Couldn't find the coin you're looking for 😞
+                {`Sorry, Couldn't find the coin you're looking for 😞`}
               </h1>
               <div
                 style={{
@@ -72,7 +72,7 @@ export default function TabsComponent({ coins, setSearch }: Props) {
           ) : (
             <div>
               <h1 style={{ textAlign: "center" }}>
-                Sorry, Couldn't find the coin you're looking for 😞
+                {`Sorry, Couldn't find the coin you're looking for 😞`}
               </h1>
               <div
                 style={{

@@ -11,9 +11,9 @@ function TopButton() {
         document.body.scrollTop > 500 ||
         document.documentElement.scrollTop > 500
       ) {
-        mybutton.style.display = "flex";
+        if(mybutton) mybutton.style.display = "flex";
       } else {
-        mybutton.style.display = "none";
+        if(mybutton) mybutton.style.display = "none";
       }
     }
 
