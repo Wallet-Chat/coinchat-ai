@@ -1,7 +1,5 @@
 "use client"
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Info from "../../../components/CoinPage/Info";
 import LineChart from "../../../components/CoinPage/LineChart";
 import SelectDays from "../../../components/CoinPage/SelectDays";
 import ToggleComponents from "../../../components/CoinPage/ToggleComponent";
@@ -13,17 +11,19 @@ import { getCoinData } from "../../../functions/getCoinData";
 import { getPrices } from "../../../functions/getPrices";
 import { settingChartData } from "../../../functions/settingChartData";
 import { settingCoinObject } from "../../../functions/settingCoinObject";
+import News from "@/components/CoinPage/News";
+import { getCoinNews } from "@/functions/getCoinNews";
 
 type Props = {
-    params: { id: string }
+  params: { id: string }
 }
 
 const Coin = ({ params: { id } }: Props) => {
-//   const { id } = useParams();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const [chartData, setChartData] = useState({ labels: [], datasets: [{}] });
   const [coin, setCoin] = useState<any>({});
+  const [coinNews, setCoinNews] = useState<string[]>([]);
   const [days, setDays] = useState(30);
   const [priceType, setPriceType] = useState("prices");
 
@@ -32,6 +32,10 @@ const Coin = ({ params: { id } }: Props) => {
       getData();
     }
   }, [id]);
+
+  useEffect(() => {
+    getNews()
+  }, [coin?.id])
 
   const getData = async () => {
     setLoading(true);
@@ -46,6 +50,26 @@ const Coin = ({ params: { id } }: Props) => {
       }
     }
   };
+
+  const getNews = async () => {
+    setLoading(true);
+    try {
+      let response = await getCoinNews(id, setError);
+      console.log("Coin News Response:", response.data);
+      if (response) {
+        setCoinNews(response.data);
+      } else {
+        console.warn("Expected an array, but got:", response.data);
+        setError(true);
+      }
+    } catch (e) {
+      console.error("Error fetching coin news:", e);
+      setError(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
 
   const handleDaysChange = async (event: any) => {
     setLoading(true);
@@ -83,7 +107,11 @@ const Coin = ({ params: { id } }: Props) => {
             />
             <LineChart chartData={chartData} />
           </div>
-          <Info title={coin.name} desc={coin.desc} />
+          <div className="news-wrapper">
+            {coinNews?.map((news: any) => (
+              <News news={news} key={1} delay={(1 % 4) * 0.2}/>
+            ))}
+          </div>
         </>
       ) : error ? (
         <div>
