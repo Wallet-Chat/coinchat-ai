@@ -5,7 +5,7 @@ export const getCoinNews = async (coin: string, setError: any) => {
     if(news){
       return news;
     }
-  } catch (e) {
+  } catch (e: any) {
     console.log(e.message);
     if (setError) {
       setError(true);

@@ -6,7 +6,7 @@ export const get100Coins = async () => {
       console.log("RESPONSE>>>", response);
       return coins;
     }
-  } catch (e) {
+  } catch (e: any) {
     console.log("ERROR>>>", e.message);
   }
 };
