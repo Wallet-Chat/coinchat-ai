@@ -3,7 +3,7 @@ export const getCoinNews = async () => {
     const response = await fetch(`/api/coingecko/coins`);
     const coins = await response.json();
     if(coins){
-      console.log("RESPONSE>>>", response.data);
+      console.log("RESPONSE>>>", response);
       return coins;
     }
   } catch (e) {
