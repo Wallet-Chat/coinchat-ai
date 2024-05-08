@@ -1,4 +1,4 @@
-export const getCoinNews = async () => {
+export const get100Coins = async () => {
   try {
     const response = await fetch(`/api/coingecko/coins`);
     const coins = await response.json();
